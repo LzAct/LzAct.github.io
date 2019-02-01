@@ -1,0 +1,73 @@
+@import 'mixin';
+
+/* 浮动 */ 
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.clear {
+    zoom: 1
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.hide {
+    display: none
+}
+.show {
+    display: block
+}
+/* 提示弹窗 */
+.el-message {
+    max-width: 600px;
+    justify-content: flex-start;
+    border-radius: 5px;
+    border: none;
+
+    &>i {
+        margin-right: 12px;
+        display: flex;
+        flex-shrink: 0;
+    }
+} 
+
+.el-message.modal_success {
+    background: #50D59D;
+    color: #ffffff;
+}
+.el-message.modal_error {
+    background: #F72B44;
+    color: #fff;
+}
+.el-message.modal_info {
+    background: #F5A623;
+    color: #fff;
+}
+
+.icon_message_success {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('~@/assets/images/icon/icon_message_success.png');
+    background-size: 24px 24px;
+}
+
+.icon_message_error {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('~@/assets/images/icon/icon_message_fail.png');
+    background-size: 24px 24px;
+}
+
+.icon_message_info {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('~@/assets/images/icon/icon_message_info.png');
+    background-size: 24px 24px;
+}
