@@ -1,5 +1,9 @@
 @import 'mixin';
 
+*{
+    margin: 0;
+    padding: 0;
+}
 /* 浮动 */ 
 .clear:after {
     content: '';
