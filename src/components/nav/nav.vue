@@ -2,7 +2,6 @@
   <div class="nav">
       <el-menu
       :default-active="activeIndex"
-      router
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
@@ -16,6 +15,8 @@
 </template>
 
 <script>
+import * as utils from '@/config/mUtils';
+
   export default {
     data () {
       return {
@@ -26,7 +27,17 @@
             },
             {
                 name: '技术支持&服务',
-                path: '/support'
+                path: '/support',
+                child: [
+                    {
+                        name: '汽车装潢',
+                        path: '/support/car'
+                    },
+                    {
+                        name: '监控安装',
+                        path: '/support/monitor'
+                    }
+                ]
             },
             {
                 name: '商品展示',
@@ -55,9 +66,24 @@
 
     methods: {
         handleSelect(key, keyPath){
-            // let path = this.navList[key].path;
             console.log(key, keyPath);
-            // this.$router.push({name: path})
+            if(key !== '/home'){
+                this.$confim('info', '正在开发中...')
+            }else{
+                this.$router.push({path: '/home'});
+            }
+
+            // if(key === '/support') {
+            //     return
+            // }else if(key === '/support') {
+            //     this.$confim('info', '正在开发中...')
+            // }else if(key === '/goods') {
+            //     this.$confim('info', '正在开发中...')
+            // }else if(key === '/company') {
+            //     this.$confim('info', '正在开发中...')
+            // }else if(key === '/contact') {
+            //     this.$confim('info', '正在开发中...')
+            // }
         }
     },
 
@@ -74,15 +100,7 @@
         li{
             flex: 1;
             text-align: center;
-            // position: relative;
-            // &::after{
-            //     position: absolute;
-            //     content: '';
-            //     height: 40px;
-            //     width: 1px;
-            //     background: red;
-            // }
-            // width: 120px;
+            font-weight: 500;
         }
     }
 }

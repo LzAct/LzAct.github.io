@@ -1,8 +1,7 @@
 <template>
   <div class="carousel">
-    <el-carousel indicator-position="inside">
+    <el-carousel indicator-position="inside" :interval="3000">
         <el-carousel-item v-for="item in imageList" :key="item.index" ref="carouselHeight">
-            <h3>{{item.index}}</h3>
             <img :src="item.url">
         </el-carousel-item>
     </el-carousel>
@@ -19,15 +18,15 @@
           imageList: [
               {
                   index: 1,
-                  url: '../../assets/images/icon/icon_login_success.png'
+                  url: require('../../assets/images/banner/banner_01.jpg')
               },
               {
                   index: 2,
-                  url: '../../assets/images/icon/icon_login_success.png'
+                  url: require('../../assets/images/banner/banner_02.jpg')
               },
               {
                   index: 3,
-                  url: '../../assets/images/icon/icon_login_success.png'
+                  url: require('../../assets/images/icon/icon_login_success.png')
               }
           ]
       };
@@ -70,6 +69,14 @@
         opacity: 0.75;
         line-height: 300px;
         margin: 0;
+    }
+    .el-carousel__item img{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     .el-carousel__item:nth-child(2n) {
         background-color: #99a9bf;
